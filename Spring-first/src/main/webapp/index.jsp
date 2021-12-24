@@ -1,9 +1,10 @@
 <html>
 <body>
-<h2>Hello World Spring</h2>
-<hr>
-<a href="MyFirstServlet">  to servlet</a>
-<a href="demoPage.jsp"> to jsp page</a>
-<hr/>
+	<h2>Banking application</h2>
+	<hr>
+	<pre>
+		<a href="DataEntry.jsp"><font color="black"> Calculate Interest</a>
+	</pre>
+	<hr />
 </body>
 </html>
