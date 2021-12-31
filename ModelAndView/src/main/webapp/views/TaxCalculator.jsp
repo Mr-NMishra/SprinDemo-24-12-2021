@@ -10,9 +10,9 @@
 	<h3>Enter Details</h3>
 	<hr>
 	<form action="InterestServiceCltr">
-		Name <input type="text" name="name" value="Name"> Income <input
-			type="text" name="income" value="Income"> Age <input
-			type="text" name="age" value="age"> <input type="submit"
+		Name <input type="text" name="name" > Income <input
+			type="text" name="income" > Age <input
+			type="text" name="age" > <input type="submit"
 			value="calculate">
 	</form>
 

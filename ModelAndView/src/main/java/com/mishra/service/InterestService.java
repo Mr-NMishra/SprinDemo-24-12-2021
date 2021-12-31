@@ -22,6 +22,9 @@ public class InterestService {
 	}
 
 	private void checkDetails() {
+		if(income<250000) {
+			this.taxPercent=0;
+		}
 		if (income >= 250000 && income <= 500000) {
 			this.taxPercent = 5;
 			if (this.age >= 60) {
