@@ -23,10 +23,10 @@
 	</property>
 	</bean>	
 		
-	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
-		<property name="url" value="jdbc:mysql://localhost:3306/SpringDemo"></property>
-		<property name="username" value="root"></property>
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="com.mysql.cj.jdbc.Driver"></property>
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/SpringDemo"></property>
+		<property name="user" value="root"></property>
 		<property name="password" value="Password123#@!"></property>
 	</bean>	
 
