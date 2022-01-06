@@ -1,16 +1,9 @@
-<%@page import="java.util.Iterator"%>
-<%@page import="org.hibernate.internal.build.AllowSysOut"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="test"%>
 <%@page import="com.mishra.entity.Student"%>
-<%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<%
-List<Student> studentList = (List<Student>) request.getAttribute("students");
-%>
+<%@page isELIgnored="false" %>
 <html>
 <head>
-<meta charset="UTF-8">
+
 <title>Insert title here</title>
 </head>
 <body>
@@ -25,22 +18,20 @@ List<Student> studentList = (List<Student>) request.getAttribute("students");
 			<th>Delete</th>
 			<th>Edit</th>
 		</tr>
-		<%
-		for (Student student : studentList) {
-		%>
+
+		<test:forEach items="${students}" var="student">
 		<tr>
-			<td><%=student.getRno()%></td>
-			<td><%=student.getName()%></td>
-			<td><%=student.getMobile()%></td>
-			<td><%=student.getAddress()%></td>
-			<td align="center" ><a href="" >[X]</a> </td>
-			<td align="center"><a href="">Update</a></td>
+			<td>${student.rno}</td>
+			<td>${student.name}</td>
+			<td>${student.mobile}</td>
+			<td>${student.address}</td>
+			<td align="center"><a href="delete?id=${student.rno}">[X]</a></td>
+			<td align="center"><a href="update?id=${student.rno}" >Update</a></td>
 		</tr>
-		<%
-		}
-		%>
+		</test:forEach>
+
 	</table>
 	<hr>
-
+<a href="index.jsp">Go to Home</a>
 </body>
 </html>

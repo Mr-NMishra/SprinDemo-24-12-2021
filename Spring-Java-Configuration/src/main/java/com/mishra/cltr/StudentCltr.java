@@ -16,7 +16,16 @@ import com.mishra.services.StudentService;
 public class StudentCltr {
 	@Autowired
 	private StudentService studentService;
+	
+	//deleting Student
+	@RequestMapping("/delete")
+	public Object deleteStudent(@RequestParam("id") String rno) {
+		Boolean flag=studentService.deleteStudent(rno);
+		ModelAndView modelAndView=new ModelAndView("redirect:StudentList");
+		return modelAndView;
+	}
 
+	//Adding Student
 	@RequestMapping("/Studentform")
 	public Object addStudent(@ModelAttribute("student") Student student) {
 		if(student.getRno()!=null) {
@@ -27,6 +36,8 @@ public class StudentCltr {
 		return modelAndView;
 	}
 	
+	
+	//Searching Student
 	@RequestMapping("/CheckStudent")
 	public Object CheckStudent(@RequestParam("rno") String rno) {
 		Student student= studentService.findStudent(rno);
@@ -50,5 +61,13 @@ public class StudentCltr {
 			return new ModelAndView("SavedStudents").addObject("students", students);
 		}
 		
+	}
+	
+	@RequestMapping("/update")
+	public Object updateStudent(@RequestParam("id") String rno) {
+		Student student=studentService.findStudent(rno);
+		System.out.println("student----"+student);
+		ModelAndView modelAndView= new ModelAndView("UpdateStudentForm").addObject("updateStudent", student);
+		return modelAndView;
 	}
 }
