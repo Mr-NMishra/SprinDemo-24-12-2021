@@ -43,16 +43,17 @@ here faculty is our model atribute name which we saved in our modelandView objec
 					<!-- here we are accessing List from control 
 				we saved our list in request object  and by using expression langugge
 				we are accessing our list item 
-				here degree is our model filed which we mention above--> <springTag:select
+				here degree is our model filed which we mention above--> 
+				<%-- <springTag:select
 						path="degree" items="${degreeList}">
 
-					</springTag:select>
+					</springTag:select> --%>
 				</td>
 			</tr>
 			<tr>
-				<td>Gender</td>
+				<%-- <td>Gender</td>
 				<td><springTag:radiobuttons items="${gender}" path="gender" />
-				</td>
+				</td> --%>
 			</tr>
 			<tr>
 				<td></td>
@@ -63,5 +64,10 @@ here faculty is our model atribute name which we saved in our modelandView objec
 	</springTag:form>
 	<hr>
 	<hr>
+	
+	<!--the below line or error tag is used to print error 
+	use use attribute value of model whih we are checking
+	here * is used to print all error in a single place  -->
+	<springTag:errors path="facultySaving.*"></springTag:errors>
 </body>
 </html>

@@ -6,9 +6,9 @@ import javax.persistence.Id;
 @Entity
 public class Faculty {
 	@Id
-	private String rno;
+	private int rno;
 	private String name;
-	private String mobile;
+	private int mobile;
 	private String email;
 	private String address;
 	private String degree;
@@ -28,11 +28,11 @@ public class Faculty {
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getRno() {
+	public int getRno() {
 		return rno;
 	}
 
-	public void setRno(String rno) {
+	public void setRno(int rno) {
 		this.rno = rno;
 	}
 
@@ -44,11 +44,11 @@ public class Faculty {
 		this.name = name;
 	}
 
-	public String getMobile() {
+	public int getMobile() {
 		return mobile;
 	}
 
-	public void setMobile(String mobile) {
+	public void setMobile(int mobile) {
 		this.mobile = mobile;
 	}
 

@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -47,8 +48,17 @@ public class FacultyCltr {
 		return modelAndView;
 	}
 	
+	
+	//Here we are using BindingResult for checking errors in Model 
+	//and use this class has Errors method
+	//once if error occur forwarded this to form again with error
+	//and using spring tag we print all error
 	@RequestMapping("SaveFaculty")
-	public Object saveFaculty(@ModelAttribute("facultySaving") Faculty faculty) {
+	public Object saveFaculty(@ModelAttribute("facultySaving") Faculty faculty ,BindingResult result) {
+		if(result.hasErrors()) {
+			System.out.println("Error Found");
+			return "FacultyForm";
+		}
 		Session session= factoryBean.openSession();
 		Transaction transaction= session.beginTransaction();
 		session.save(faculty);
