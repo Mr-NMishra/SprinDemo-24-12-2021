@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -57,7 +58,7 @@ public class FacultyCltr {
 	//once if error occur forwarded this to form again with error
 	//and using spring tag we print all error
 	@RequestMapping("SaveFaculty")
-	public Object saveFaculty(@ModelAttribute("faculty")@Valid Faculty faculty ,BindingResult result) {
+	public Object saveFaculty(@ModelAttribute("faculty")@Valid @RequestBody Faculty faculty ,BindingResult result) {
 		if(result.hasErrors()) {
 			System.out.println("error--------------");
 			return "FacultyForm";

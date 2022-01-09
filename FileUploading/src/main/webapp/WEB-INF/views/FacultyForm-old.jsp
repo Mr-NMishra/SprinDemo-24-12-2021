@@ -1,4 +1,5 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@taglib uri="http://www.springframework.org/tags/form"
 	prefix="springTag"%>
 <%@page isELIgnored="false"%>
@@ -13,39 +14,47 @@
 	<hr>
 	<!-- below we are using sprin form and using Modeltrribute and acessing model or binding model
 here faculty is our model atribute name which we saved in our modelandView object in controller  -->
-	<springTag:form action="SaveFaculty"  modelAttribute="faculty">
+	<springTag:form action="SaveFaculty" method="get"
+		modelAttribute="faculty">
 		<table align="center">
 			<tr>
 				<td>Roll No</td>
-					<td>
-						<springTag:input path="rno" />  <springTag:errors path="rno"></springTag:errors> 
-					</td>
+				<td><input type="text" name="rno"></td>
 			</tr>
 			<tr>
 				<td>Name</td>
-				<td>
-					<springTag:input path="name"/> <springTag:errors path="name"></springTag:errors> 
-				</td>
+				<td><input type="text" name="name"></td>
 			</tr>
 			<tr>
 				<td>Mobile</td>
-				<td>
-					<springTag:input path="mobile"/>  <springTag:errors path="mobile"></springTag:errors> 
-				</td>
+				<td><input type="text" name="mobile"></td>
 			</tr>
 			<tr>
 				<td>Email</td>
-				<td>
-					<springTag:input path="email"/>  <springTag:errors path="email"></springTag:errors> 
-				</td>
+				<td><input type="text" name="email"></td>
 			</tr>
 			<tr>
 				<td>Address</td>
+				<td><input type="text" name="address"></td>
+			</tr>
+			<tr>
+				<td>Degree</td>
 				<td>
-					<springTag:input path="address"/> <springTag:errors path="address"></springTag:errors> 
+					<!-- here we are accessing List from control 
+				we saved our list in request object  and by using expression langugge
+				we are accessing our list item 
+				here degree is our model filed which we mention above--> 
+				<%-- <springTag:select
+						path="degree" items="${degreeList}">
+
+					</springTag:select> --%>
 				</td>
 			</tr>
-
+			<tr>
+				<%-- <td>Gender</td>
+				<td><springTag:radiobuttons items="${gender}" path="gender" />
+				</td> --%>
+			</tr>
 			<tr>
 				<td></td>
 				<td align="right"><input type="reset"><input
@@ -55,10 +64,10 @@ here faculty is our model atribute name which we saved in our modelandView objec
 	</springTag:form>
 	<hr>
 	<hr>
-
+	
 	<!--the below line or error tag is used to print error 
 	use use attribute value of model whih we are checking
 	here * is used to print all error in a single place  -->
-	<%--  <springTag:errors path="faculty.*"></springTag:errors>   --%>
+	<springTag:errors path="facultySaving.*"></springTag:errors>
 </body>
 </html>
