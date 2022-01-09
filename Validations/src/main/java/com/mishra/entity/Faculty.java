@@ -2,18 +2,23 @@ package com.mishra.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Pattern;
+
 
 @Entity
 public class Faculty {
 	@Id
+	@Max(value = 500 , message = "must be less than 500")
 	private int rno;
 	private String name;
+	
 	private int mobile;
+	@Email(message = "Type proper email")
 	private String email;
 	private String address;
-	private String degree;
-	private String gender;
-
 	
 	public String getEmail() {
 		return email;
@@ -60,20 +65,5 @@ public class Faculty {
 		this.address = address;
 	}
 
-	public String getDegree() {
-		return degree;
-	}
-
-	public void setDegree(String degree) {
-		this.degree = degree;
-	}
-
-	public String getGender() {
-		return gender;
-	}
-
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
 
 }
